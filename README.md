@@ -201,7 +201,7 @@ To run the JavaScript code, ensure you have **Node.js** installed on your system
 ### Example Output
 
 ```bash
-4
+3
 ```
 
 ## Error Handling
