@@ -1,42 +1,53 @@
-Polynomial Constant Term Finder:
+# Polynomial Constant Term Finder
 
-This project provides a method for finding the constant term of a polynomial using Lagrange Interpolation.
-The code processes JSON input containing encoded values in different bases, decodes these values, and then calculates the constant term of a polynomial based on the provided data points.
+This project provides a method for finding the constant term of a polynomial using **Lagrange Interpolation**. The code processes JSON input containing encoded values in different bases, decodes these values, and then calculates the constant term of a polynomial based on the provided data points.
 
-Overview
-The main components of the project include:
-decodeValue Function: Decodes a given value from a specified base.
-findPolynomialConstantTerm Function: Uses Lagrange Interpolation to find the constant term of a polynomial.
-main Function: Processes JSON input, decodes the values, and computes the constant term.
-Functions
-decodeValue(valueStr, base)
-Decodes a string valueStr from the specified base to a decimal integer.
+## Overview
 
-Parameters:
-valueStr (string): The encoded value as a string.
-base (number): The base of the encoded value.
-Returns:
-(number): The decoded decimal value.
-findPolynomialConstantTerm(xValues, yValues)
+The project includes the following key components:
+
+1. **`decodeValue` Function**: Decodes a given value from a specified base.
+2. **`findPolynomialConstantTerm` Function**: Uses Lagrange Interpolation to find the constant term of a polynomial.
+3. **`main` Function**: Processes JSON input, decodes the values, and computes the constant term.
+
+## Functions
+
+### `decodeValue(valueStr, base)`
+Decodes a string `valueStr` from the specified base to a decimal integer.
+
+- **Parameters**:
+  - `valueStr` (string): The encoded value as a string.
+  - `base` (number): The base of the encoded value.
+ 
+- **Returns**:
+  - `(number)`: The decoded decimal value.
+
+### `findPolynomialConstantTerm(xValues, yValues)`
 Finds the constant term of a polynomial using Lagrange Interpolation.
 
-Parameters:
-xValues (Array<number>): An array of x-values (input data points).
-yValues (Array<number>): An array of y-values (decoded data points).
-Returns:
-(number): The constant term of the polynomial.
-main(jsonInput)
+- **Parameters**:
+  - `xValues` (Array<number>): An array of x-values (input data points).
+  - `yValues` (Array<number>): An array of y-values (decoded data points).
+ 
+- **Returns**:
+  - `(number)`: The constant term of the polynomial.
+
+### `main(jsonInput)`
 Processes the JSON input to decode the values and compute the polynomial constant term.
 
-Parameters:
-jsonInput (string): A JSON string containing encoded data.
+- **Parameters**:
+  - `jsonInput` (string): A JSON string containing encoded data.
+ 
+- **Returns**:
+  - `(number)`: The constant term of the polynomial.
 
-Returns:
-(number): The constant term of the polynomial.
+## Usage
 
-Usage
-Prepare JSON Input: The JSON input should follow the structure below.
-json:
+### 1. Prepare JSON Input
+
+The JSON input should follow the structure below:
+
+```json
 {
     "keys": {
         "n": <total number of data points>,
@@ -45,12 +56,15 @@ json:
     "<x-value>": {
         "base": "<base of the encoded value>",
         "value": "<encoded value>"
-    },
-    ...
+    }
 }
-Call the main Function: Pass the JSON string to the main function.
+```
 
-javascript:
+### 2. Call the `main` Function
+
+Pass the JSON string to the `main` function.
+
+```javascript
 const jsonInput = JSON.stringify({
     "keys": {
         "n": 4,
@@ -75,12 +89,13 @@ const jsonInput = JSON.stringify({
 });
 
 console.log(main(jsonInput));  // Output the constant term
+```
 
+### 3. Example 1
 
-Examples
-Example 1:
-javascript
-Copy code
+Here’s an example of how to use the code with a sample JSON input:
+
+```javascript
 const jsonInput1 = JSON.stringify({
     "keys": {
         "n": 4,
@@ -105,11 +120,13 @@ const jsonInput1 = JSON.stringify({
 });
 
 console.log(main(jsonInput1));  // Output the constant term
+```
 
+### 4. Example 2
 
-Example 2:
-javascript
-Copy code
+Another example with a larger JSON input:
+
+```javascript
 const jsonInput2 = JSON.stringify({
     "keys": {
         "n": 9,
@@ -154,11 +171,40 @@ const jsonInput2 = JSON.stringify({
 });
 
 console.log(main(jsonInput2));  // Output the constant term
+```
 
+## Steps to Run the Code
 
-Error Handling
-If there are not enough data points (less than k) to determine the polynomial, an error will be thrown.
-Ensure that the JSON input follows the specified structure to avoid parsing errors.
+### Prerequisites
+To run the JavaScript code, ensure you have **Node.js** installed on your system. You can download and install it from [nodejs.org](https://nodejs.org/).
 
-License
-This project is licensed under the MIT License. See the LICENSE file for details.
+### Steps
+
+1. **Clone the repository**:
+   Open your terminal and run:
+   ```bash
+   git clone <repository-url>
+   cd <repository-folder>
+   ```
+
+2. **Create a JavaScript file**:
+   Create a new file (e.g., `polynomial.js`) and paste the provided code into the file.
+
+3. **Run the code**:
+   Run the following command in your terminal to execute the JavaScript code:
+   ```bash
+   node polynomial.js
+   ```
+
+   This will execute the `main` function with the sample JSON input and print the constant term of the polynomial to the console.
+
+### Example Output
+
+```bash
+4
+```
+
+## Error Handling
+
+- If there are not enough data points (less than `k`) to determine the polynomial, an error will be thrown.
+- Ensure that the JSON input follows the specified structure to avoid parsing errors.
